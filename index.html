@@ -10,6 +10,7 @@
 
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { overflow-x: hidden; width: 100%; }
 
 :root {
   --black:    #080c14;
@@ -239,6 +240,7 @@ footer { border-top: 1px solid var(--border); padding: 40px 40px 32px; display: 
 .sec-portfolio {
   background: var(--navy);
   padding: 100px 0 80px;
+  overflow-x: clip;
 }
 .portfolio-track {
   display: grid;
