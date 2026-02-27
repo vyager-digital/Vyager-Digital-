@@ -231,7 +231,6 @@ footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex;
 .sec-portfolio {
   background: var(--navy);
   padding: 100px 0 80px;
-  overflow: hidden;
 }
 .portfolio-track {
   display: grid;
@@ -358,12 +357,15 @@ footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex;
   .team-split-text { padding: 52px 28px; }
   .team-split-photo { min-height: 380px; }
   /* Portfolio */
+  .sec-portfolio { padding: 64px 0 48px; }
   .portfolio-track {
     grid-template-columns: repeat(3, 80vw);
+    max-width: none;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
-    padding: 0 24px 8px;
+    padding: 0 24px 16px;
+    gap: 16px;
   }
   .portfolio-card { scroll-snap-align: start; }
   /* Proof strip */
@@ -379,7 +381,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex;
   .outcomes-grid { grid-template-columns: 1fr; }
   .out-card { border-right: none; }
   /* Portfolio */
-  .portfolio-track { grid-template-columns: repeat(3, 88vw); }
+  .portfolio-track { grid-template-columns: repeat(3, 88vw); gap: 12px; }
   /* Footer */
   .foot-links { display: none; }
   /* Phases */
@@ -392,7 +394,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex;
 <body>
 
 <nav id="nav">
-  <a href="#" class="logo">VYA<span>GER</span></a>
+  <a href="#" class="logo"><img src="https://vyager.com.br/wp-content/uploads/2025/12/Vyager-Logo-New-2-1.png" alt="Vyager" style="height:42px;width:auto;display:block;"/></a>
   <div class="nav-right">
     <a href="#phases" class="nav-link">How It Works</a>
     <a href="#team" class="nav-link">Team</a>
@@ -419,6 +421,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex;
 </section>
 </div>
 
+<!-- PORTFOLIO -->
 <div class="pillars-strip">
   <div class="pillars-inner">
     <div class="strip-pillar sr">
@@ -435,6 +438,79 @@ footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex;
     </div>
   </div>
 </div>
+
+<section class="sec-portfolio">
+  <div class="container">
+    <div class="sr" style="margin-bottom:52px;">
+      <span class="sec-label" style="color:var(--teal);">Our Work</span>
+      <h2>Built to Convert,<br><em>Built to Impress</em></h2>
+      <p class="sec-desc">A selection of websites and landing pages we've designed and developed for clients across Brazil and South Africa.</p>
+    </div>
+  </div>
+  <div class="portfolio-track">
+
+    <div class="portfolio-card sr">
+      <a href="https://elow-estudio-design.vercel.app/" target="_blank" class="portfolio-link">
+        <div class="browser-chrome">
+          <div class="browser-bar">
+            <div class="browser-dots"><span></span><span></span><span></span></div>
+            <div class="browser-url">elow-estudio-design.vercel.app</div>
+          </div>
+          <div class="browser-screen">
+            <img src="https://vyager.com.br/wp-content/uploads/2026/02/screencapture-elow-estudio-design-vercel-app-2026-02-27-08_35_46-scaled.png" alt="Elow Estúdio Design"/>
+            <div class="portfolio-overlay"><span class="portfolio-view">View Live <i class="ph-bold ph-arrow-square-out"></i></span></div>
+          </div>
+        </div>
+        <div class="portfolio-meta">
+          <div class="portfolio-tag">Branding Studio</div>
+          <div class="portfolio-name">Elow Estúdio Design</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="portfolio-card sr d1">
+      <a href="https://gisele-azevedo-5-passos.vercel.app/" target="_blank" class="portfolio-link">
+        <div class="browser-chrome">
+          <div class="browser-bar">
+            <div class="browser-dots"><span></span><span></span><span></span></div>
+            <div class="browser-url">gisele-azevedo-5-passos.vercel.app</div>
+          </div>
+          <div class="browser-screen">
+            <img src="https://vyager.com.br/wp-content/uploads/2026/02/screencapture-gisele-azevedo-6-passos-vercel-app-2026-02-27-07_15_36-scaled.png" alt="Gisele Azevedo"/>
+            <div class="portfolio-overlay"><span class="portfolio-view">View Live <i class="ph-bold ph-arrow-square-out"></i></span></div>
+          </div>
+        </div>
+        <div class="portfolio-meta">
+          <div class="portfolio-tag">Health & Wellness</div>
+          <div class="portfolio-name">Gisele Azevedo</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="portfolio-card sr d2">
+      <a href="https://vitalista.vercel.app/" target="_blank" class="portfolio-link">
+        <div class="browser-chrome">
+          <div class="browser-bar">
+            <div class="browser-dots"><span></span><span></span><span></span></div>
+            <div class="browser-url">vitalista.vercel.app</div>
+          </div>
+          <div class="browser-screen">
+            <img src="https://vyager.com.br/wp-content/uploads/2026/02/screencapture-vitalista-vercel-app-2026-02-27-07_15_02-scaled.png" alt="Vitalista"/>
+            <div class="portfolio-overlay"><span class="portfolio-view">View Live <i class="ph-bold ph-arrow-square-out"></i></span></div>
+          </div>
+        </div>
+        <div class="portfolio-meta">
+          <div class="portfolio-tag">Renewable Energy</div>
+          <div class="portfolio-name">Vitalista</div>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+
 
 <section class="sec sec-navy">
   <div class="container">
@@ -672,76 +748,6 @@ footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex;
   </div>
 </section>
 
-<!-- PORTFOLIO -->
-<section class="sec-portfolio">
-  <div class="container">
-    <div class="sr" style="margin-bottom:52px;">
-      <span class="sec-label" style="color:var(--teal);">Our Work</span>
-      <h2>Built to Convert,<br><em>Built to Impress</em></h2>
-      <p class="sec-desc">A selection of websites and landing pages we've designed and developed for clients across Brazil and South Africa.</p>
-    </div>
-  </div>
-  <div class="portfolio-track">
-
-    <div class="portfolio-card sr">
-      <a href="https://elow-estudio-design.vercel.app/" target="_blank" class="portfolio-link">
-        <div class="browser-chrome">
-          <div class="browser-bar">
-            <div class="browser-dots"><span></span><span></span><span></span></div>
-            <div class="browser-url">elow-estudio-design.vercel.app</div>
-          </div>
-          <div class="browser-screen">
-            <img src="https://vyager.com.br/wp-content/uploads/2026/02/screencapture-elow-estudio-design-vercel-app-2026-02-27-08_35_46-scaled.png" alt="Elow Estúdio Design"/>
-            <div class="portfolio-overlay"><span class="portfolio-view">View Live <i class="ph-bold ph-arrow-square-out"></i></span></div>
-          </div>
-        </div>
-        <div class="portfolio-meta">
-          <div class="portfolio-tag">Branding Studio</div>
-          <div class="portfolio-name">Elow Estúdio Design</div>
-        </div>
-      </a>
-    </div>
-
-    <div class="portfolio-card sr d1">
-      <a href="https://gisele-azevedo-5-passos.vercel.app/" target="_blank" class="portfolio-link">
-        <div class="browser-chrome">
-          <div class="browser-bar">
-            <div class="browser-dots"><span></span><span></span><span></span></div>
-            <div class="browser-url">gisele-azevedo-5-passos.vercel.app</div>
-          </div>
-          <div class="browser-screen">
-            <img src="https://vyager.com.br/wp-content/uploads/2026/02/screencapture-gisele-azevedo-6-passos-vercel-app-2026-02-27-07_15_36-scaled.png" alt="Gisele Azevedo"/>
-            <div class="portfolio-overlay"><span class="portfolio-view">View Live <i class="ph-bold ph-arrow-square-out"></i></span></div>
-          </div>
-        </div>
-        <div class="portfolio-meta">
-          <div class="portfolio-tag">Health & Wellness</div>
-          <div class="portfolio-name">Gisele Azevedo</div>
-        </div>
-      </a>
-    </div>
-
-    <div class="portfolio-card sr d2">
-      <a href="https://vitalista.vercel.app/" target="_blank" class="portfolio-link">
-        <div class="browser-chrome">
-          <div class="browser-bar">
-            <div class="browser-dots"><span></span><span></span><span></span></div>
-            <div class="browser-url">vitalista.vercel.app</div>
-          </div>
-          <div class="browser-screen">
-            <img src="https://vyager.com.br/wp-content/uploads/2026/02/screencapture-vitalista-vercel-app-2026-02-27-07_15_02-scaled.png" alt="Vitalista"/>
-            <div class="portfolio-overlay"><span class="portfolio-view">View Live <i class="ph-bold ph-arrow-square-out"></i></span></div>
-          </div>
-        </div>
-        <div class="portfolio-meta">
-          <div class="portfolio-tag">Renewable Energy</div>
-          <div class="portfolio-name">Vitalista</div>
-        </div>
-      </a>
-    </div>
-
-  </div>
-</section>
 
 <section class="sec sec-nav2">
   <div class="container">
@@ -854,7 +860,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex;
 </section>
 
 <footer>
-  <a href="#" class="foot-logo">VYA<span>GER</span></a>
+  <a href="#" class="foot-logo"><img src="https://vyager.com.br/wp-content/uploads/2025/12/Vyager-Logo-New-2-1.png" alt="Vyager" style="height:36px;width:auto;display:block;"/></a>
   <div class="foot-links">
     <a href="https://www.facebook.com/vyagerdigitalbrasil" target="_blank" class="foot-link">Facebook</a>
     <a href="https://www.instagram.com/vyagerdigitalbrasil" target="_blank" class="foot-link">Instagram</a>
