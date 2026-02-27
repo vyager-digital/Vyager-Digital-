@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vyager — Websites, Funnels & Campaigns That Bring You Clients</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"/>
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black:    #080c14;
+  --navy:     #0d1321;
+  --navy2:    #111827;
+  --teal:     #0ecfb0;
+  --teal-dim: rgba(14,207,176,0.1);
+  --teal-border: rgba(14,207,176,0.2);
+  --white:    #ffffff;
+  --off:      #f4f6fa;
+  --text-dim: rgba(255,255,255,0.5);
+  --text-mid: rgba(255,255,255,0.75);
+  --border:   rgba(255,255,255,0.07);
+  --dark-text: #1a2035;
+  --dark-dim:  rgba(26,32,53,0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--black);
+  color: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sr { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+.sr.in { opacity: 1; transform: none; }
+.d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; } .d3 { transition-delay: .3s; }
+.d4 { transition-delay: .4s; } .d5 { transition-delay: .5s; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+@media(max-width:600px){ .container { padding: 0 24px; } }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: 20px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background .3s, border-color .3s;
+  border-bottom: 1px solid transparent;
+}
+nav.stuck { background: rgba(8,12,20,0.92); backdrop-filter: blur(16px); border-color: var(--border); }
+.logo { font-size: 1.1rem; font-weight: 800; letter-spacing: .02em; color: var(--white); text-decoration: none; }
+.logo span { color: var(--teal); }
+.nav-right { display: flex; align-items: center; gap: 32px; }
+.nav-link { font-size: .82rem; font-weight: 500; color: var(--text-dim); text-decoration: none; transition: color .2s; }
+.nav-link:hover { color: var(--white); }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px;
+  font-family: 'Inter', sans-serif;
+  font-size: .82rem; font-weight: 600; letter-spacing: .01em;
+  border-radius: 6px; border: none; cursor: pointer;
+  text-decoration: none; white-space: nowrap;
+  transition: opacity .2s, transform .2s, box-shadow .2s;
+}
+.btn-teal { background: var(--teal); color: var(--black); }
+.btn-teal:hover { opacity: .88; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(14,207,176,.25); }
+.btn-outline { background: transparent; color: var(--white); border: 1px solid var(--border); }
+.btn-outline:hover { border-color: rgba(255,255,255,.3); background: rgba(255,255,255,.04); }
+.btn-lg { padding: 16px 36px; font-size: .88rem; border-radius: 8px; }
+.btn-dark { background: var(--dark-text); color: var(--white); }
+.btn-dark:hover { opacity: .85; transform: translateY(-1px); }
+
+#hero-wrap {
+  position: relative;
+  overflow: hidden;
+  background: var(--black);
+}
+#hero-wrap::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url('https://vyager.com.br/wp-content/uploads/2026/02/Comsic-Background.jpg') center center / cover no-repeat;
+  opacity: 1;
+  z-index: 0;
+}
+#hero-wrap::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(8,12,20,0.3) 0%, rgba(8,12,20,0.6) 85%, var(--black) 100%);
+  z-index: 1;
+}
+#hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: flex-start;
+  padding: 140px 40px 100px;
+  max-width: 1100px; margin: 0 auto;
+  position: relative; z-index: 2;
+}
+.hero-label {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: .72rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 32px;
+  opacity: 0; animation: fu .7s ease .1s forwards;
+}
+.hero-label-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); animation: blink 2.5s ease-in-out infinite; }
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:.25;} }
+h1 { font-size: clamp(2.8rem, 5.5vw, 5.2rem); font-weight: 800; line-height: 1.08; letter-spacing: -.03em; max-width: 720px; opacity: 0; animation: fu .8s ease .25s forwards; }
+h1 em { font-style: italic; font-weight: 700; color: var(--teal); }
+.hero-sub { margin-top: 24px; max-width: 480px; font-size: 1rem; font-weight: 400; line-height: 1.75; color: var(--text-mid); opacity: 0; animation: fu .8s ease .4s forwards; }
+.hero-actions { display: flex; gap: 12px; margin-top: 40px; flex-wrap: wrap; opacity: 0; animation: fu .8s ease .55s forwards; }
+.hero-proof { display: flex; align-items: center; gap: 28px; margin-top: 64px; flex-wrap: wrap; opacity: 0; animation: fu .8s ease .7s forwards; }
+.proof-item { display: flex; align-items: center; gap: 10px; font-size: .8rem; color: var(--text-dim); font-weight: 400; }
+.proof-num { font-size: 1.5rem; font-weight: 800; color: var(--white); letter-spacing: -.02em; }
+.proof-divider { width: 1px; height: 32px; background: var(--border); }
+@keyframes fu { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:none;} }
+
+.pillars-strip { background: var(--navy); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.pillars-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); }
+.strip-pillar { padding: 36px 40px; border-right: 1px solid var(--border); display: flex; align-items: flex-start; gap: 18px; }
+.strip-pillar:last-child { border-right: none; }
+.sp-icon { width: 36px; height: 36px; flex-shrink: 0; border: 1px solid var(--teal-border); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: var(--teal); }
+.sp-title { font-size: .88rem; font-weight: 600; margin-bottom: 4px; }
+.sp-desc { font-size: .78rem; color: var(--text-dim); line-height: 1.5; }
+
+.sec { padding: 100px 0; }
+.sec-light { background: var(--off); color: var(--dark-text); }
+.sec-nav2 { background: var(--navy2); }
+.sec-navy { background: var(--navy); }
+.sec-label { font-size: .68rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; display: block; }
+h2 { font-size: clamp(1.9rem, 3.5vw, 2.9rem); font-weight: 800; line-height: 1.1; letter-spacing: -.025em; }
+h2 em { font-style: italic; color: var(--teal); font-weight: 700; }
+.sec-light h2 { color: var(--dark-text); }
+.sec-light h2 em { color: #059c85; }
+.sec-desc { margin-top: 16px; max-width: 480px; font-size: .95rem; line-height: 1.75; color: var(--text-mid); }
+.sec-light .sec-desc { color: var(--dark-dim); }
+
+.problem-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 52px; }
+.prob-col { padding: 40px; border: 1px solid var(--border); }
+.prob-col.yes { border-color: var(--teal-border); background: var(--teal-dim); }
+.prob-col-title { font-size: .7rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; margin-bottom: 28px; }
+.prob-col.yes .prob-col-title { color: var(--teal); }
+.prob-col:not(.yes) .prob-col-title { color: rgba(255,100,100,.7); }
+.prob-row { display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.05); font-size: .88rem; line-height: 1.55; color: var(--text-mid); }
+.prob-row:last-child { border: none; }
+.prob-col.yes .prob-row { color: rgba(255,255,255,.85); }
+.prob-icon { flex-shrink: 0; margin-top: 1px; font-size: .82rem; }
+
+.phase { padding: 72px 0; border-bottom: 1px solid rgba(0,0,0,.07); }
+.phase:last-child { border: none; }
+.phase-row { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.phase-row.rev { direction: rtl; }
+.phase-row.rev > * { direction: ltr; }
+.phase-num { font-size: 6rem; font-weight: 900; line-height: 1; letter-spacing: -.04em; color: rgba(14,207,176,.12); margin-bottom: -8px; }
+.phase-title { font-size: 1.6rem; font-weight: 800; line-height: 1.2; letter-spacing: -.02em; color: var(--dark-text); margin-bottom: 14px; }
+.phase-desc { font-size: .92rem; line-height: 1.75; color: var(--dark-dim); margin-bottom: 24px; }
+.phase-list { list-style: none; }
+.phase-list li { display: flex; align-items: flex-start; gap: 10px; font-size: .88rem; line-height: 1.55; color: var(--dark-dim); padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,.06); }
+.phase-list li:last-child { border: none; }
+.li-check { width: 16px; height: 16px; flex-shrink: 0; background: rgba(14,207,176,.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .6rem; color: #059c85; margin-top: 1px; }
+.phase-box { background: white; border: 1px solid rgba(0,0,0,.07); border-radius: 12px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,.06); }
+
+.outcomes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 56px; border: 1px solid var(--border); }
+.out-card { padding: 36px 32px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); transition: background .25s; }
+.out-card:hover { background: rgba(255,255,255,.025); }
+.out-card:nth-child(3n) { border-right: none; }
+.out-card:nth-child(4), .out-card:nth-child(5), .out-card:nth-child(6) { border-bottom: none; }
+.out-icon { font-size: 1.3rem; margin-bottom: 16px; display: block; }
+.out-title { font-size: .9rem; font-weight: 700; margin-bottom: 8px; color: var(--white); }
+.out-desc { font-size: .82rem; line-height: 1.6; color: var(--text-dim); }
+
+.testi-wrap { max-width: 760px; margin: 0 auto; display: grid; grid-template-columns: 72px 1fr; gap: 36px; align-items: start; }
+.testi-av { width: 72px; height: 72px; border-radius: 50%; background: var(--navy2); border: 1px solid var(--teal-border); display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; color: var(--teal); flex-shrink: 0; }
+.testi-stars { color: var(--teal); font-size: .8rem; letter-spacing: 3px; margin-bottom: 14px; }
+.testi-q { font-size: clamp(1rem, 1.8vw, 1.35rem); font-weight: 600; line-height: 1.6; color: var(--dark-text); margin-bottom: 18px; }
+.testi-name { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #059c85; }
+.testi-role { font-size: .8rem; color: var(--dark-dim); margin-top: 2px; }
+
+.ideal-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 52px; }
+.ideal-col { padding: 40px; border: 1px solid var(--border); }
+.ideal-col.fit { border-color: var(--teal-border); background: var(--teal-dim); }
+.ideal-col-label { font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 28px; display: block; }
+.ideal-col.fit .ideal-col-label { color: var(--teal); }
+.ideal-col:not(.fit) .ideal-col-label { color: rgba(255,100,100,.6); }
+.ideal-row { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.05); }
+.ideal-row:last-child { border: none; }
+.ideal-tag { font-size: .82rem; font-weight: 700; margin-bottom: 4px; color: var(--white); }
+.ideal-desc { font-size: .8rem; line-height: 1.55; color: var(--text-dim); }
+
+.team-split { display: grid; grid-template-columns: 1fr 1fr; min-height: 600px; }
+.team-split-text { padding: 80px 64px; display: flex; flex-direction: column; justify-content: center; background: var(--off); }
+.team-split-text h2 { margin-bottom: 40px; }
+.team-person { padding: 24px 0; border-top: 1px solid rgba(26,32,53,0.08); }
+.team-person:last-of-type { border-bottom: 1px solid rgba(26,32,53,0.08); margin-bottom: 28px; }
+.team-person-name { font-size: 1rem; font-weight: 800; color: var(--dark-text); letter-spacing: -.01em; }
+.team-person-role { font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #059c85; margin-top: 2px; margin-bottom: 8px; }
+.team-person-bio { font-size: .88rem; line-height: 1.72; color: var(--dark-dim); }
+.team-together { font-size: .88rem; line-height: 1.72; color: var(--dark-dim); font-style: italic; }
+.team-split-photo { position: relative; overflow: hidden; min-height: 500px; }
+.tc-name { font-size: 1.4rem; font-weight: 800; letter-spacing: -.02em; color: var(--dark-text); margin-bottom: 4px; }
+.tc-role { font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #059c85; margin-bottom: 16px; }
+.tc-bio { font-size: .88rem; line-height: 1.72; color: var(--dark-dim); }
+.tc-stat { margin-top: 28px; font-size: 2.2rem; font-weight: 900; letter-spacing: -.03em; color: var(--dark-text); line-height: 1; }
+.tc-stat span { font-size: 1rem; color: var(--dark-dim); font-weight: 400; }
+.tc-stat-lbl { font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--dark-dim); margin-top: 4px; }
+
+#cta { padding: 120px 40px; text-align: center; }
+.cta-inner { max-width: 600px; margin: 0 auto; }
+.cta-inner h2 { font-size: clamp(2rem, 4vw, 3.2rem); }
+.cta-inner p { margin: 18px auto 40px; color: var(--text-mid); font-size: .95rem; line-height: 1.75; }
+.cta-box { text-align: left; background: var(--navy); border: 1px solid var(--border); border-radius: 10px; padding: 36px 40px; margin-top: 40px; }
+.cta-box-label { font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--teal); margin-bottom: 20px; display: block; }
+.cta-item { display: flex; gap: 12px; align-items: flex-start; font-size: .88rem; line-height: 1.55; color: var(--text-mid); padding: 10px 0; border-bottom: 1px solid var(--border); }
+.cta-item:last-child { border: none; }
+.ci-arrow { color: var(--teal); flex-shrink: 0; font-weight: 700; font-size: .8rem; margin-top: 1px; }
+
+footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+.foot-logo { font-size: .95rem; font-weight: 800; color: var(--white); text-decoration: none; }
+.foot-logo span { color: var(--teal); }
+.foot-links { display: flex; gap: 24px; }
+.foot-link { font-size: .78rem; color: var(--text-dim); text-decoration: none; transition: color .2s; }
+.foot-link:hover { color: var(--white); }
+.foot-copy { font-size: .72rem; color: rgba(255,255,255,.2); }
+
+/* ─── PORTFOLIO ─── */
+.sec-portfolio {
+  background: var(--navy);
+  padding: 100px 0 80px;
+  overflow: hidden;
+}
+.portfolio-track {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  padding: 0 40px 8px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.portfolio-card { display: flex; flex-direction: column; }
+.portfolio-link { text-decoration: none; display: block; }
+.browser-chrome {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+  background: #1a2035;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.portfolio-link:hover .browser-chrome {
+  transform: translateY(-6px);
+  box-shadow: 0 36px 80px rgba(0,0,0,0.5);
+}
+.browser-bar {
+  background: #1a2035;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.browser-dots { display: flex; gap: 6px; }
+.browser-dots span {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+}
+.browser-dots span:nth-child(1) { background: rgba(255,95,86,0.5); }
+.browser-dots span:nth-child(2) { background: rgba(255,189,46,0.5); }
+.browser-dots span:nth-child(3) { background: rgba(39,201,63,0.5); }
+.browser-url {
+  flex: 1;
+  background: rgba(255,255,255,0.05);
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: .68rem;
+  color: rgba(255,255,255,0.25);
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.browser-screen {
+  position: relative;
+  overflow: hidden;
+  height: 320px;
+}
+.browser-screen img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: unset;
+  transform: translateY(0);
+  transition: transform 8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  vertical-align: top;
+}
+.portfolio-link:hover .browser-screen img {
+  transform: translateY(calc(-100% + 320px));
+}
+.portfolio-overlay {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  opacity: 0;
+  transition: opacity .3s ease .2s;
+  pointer-events: none;
+}
+.portfolio-link:hover .portfolio-overlay { opacity: 1; pointer-events: auto; }
+.portfolio-view {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--white);
+  font-size: .72rem; font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 7px 14px;
+  border-radius: 6px;
+  background: rgba(8,12,20,0.75);
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+}
+.portfolio-meta { padding: 18px 4px 0; }
+.portfolio-tag {
+  font-size: .65rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 4px;
+}
+.portfolio-name {
+  font-size: .92rem; font-weight: 700;
+  color: var(--text-mid);
+}
+@media(max-width:860px){
+  /* Nav */
+  nav { padding: 16px 24px; }
+  /* Hero */
+  #hero { padding: 120px 24px 80px; }
+  /* Pillars strip */
+  .pillars-inner { grid-template-columns: 1fr; }
+  .strip-pillar { border-right: none; border-bottom: 1px solid var(--border); }
+  .strip-pillar:last-child { border-bottom: none; }
+  /* Sections */
+  .sec { padding: 64px 0; }
+  /* Problem / Ideal */
+  .problem-cols,.ideal-cols { grid-template-columns: 1fr; }
+  /* Phases */
+  .phase { padding: 48px 0; }
+  .phase-row,.phase-row.rev { grid-template-columns: 1fr; gap: 32px; direction: ltr; }
+  .phase-num { font-size: 4rem; }
+  /* Outcomes */
+  .outcomes-grid { grid-template-columns: 1fr 1fr; }
+  /* Testimonial */
+  .testi-wrap { grid-template-columns: 1fr; gap: 20px; }
+  /* Team */
+  .team-split { grid-template-columns: 1fr; }
+  .team-split-text { padding: 52px 28px; }
+  .team-split-photo { min-height: 380px; }
+  /* Portfolio */
+  .portfolio-track {
+    grid-template-columns: repeat(3, 80vw);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding: 0 24px 8px;
+  }
+  .portfolio-card { scroll-snap-align: start; }
+  /* Proof strip */
+  .proof-strip { flex-wrap: wrap; gap: 16px; }
+  .proof-divider { display: none; }
+}
+@media(max-width:520px){
+  /* Nav */
+  .nav-link { display: none; }
+  /* Hero */
+  #hero { padding: 100px 20px 60px; }
+  /* Outcomes */
+  .outcomes-grid { grid-template-columns: 1fr; }
+  .out-card { border-right: none; }
+  /* Portfolio */
+  .portfolio-track { grid-template-columns: repeat(3, 88vw); }
+  /* Footer */
+  .foot-links { display: none; }
+  /* Phases */
+  .phase-num { font-size: 3rem; }
+  /* Team */
+  .team-split-text { padding: 40px 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#" class="logo">VYA<span>GER</span></a>
+  <div class="nav-right">
+    <a href="#phases" class="nav-link">How It Works</a>
+    <a href="#team" class="nav-link">Team</a>
+    <a href="#cta" class="btn btn-teal" style="padding:11px 22px;font-size:.78rem;">Schedule a Call</a>
+  </div>
+</nav>
+
+<div id="hero-wrap">
+<section id="hero">
+  <div class="hero-label"><span class="hero-label-dot"></span>Digital Growth Infrastructure</div>
+  <h1>Websites, Funnels &amp; Campaigns<br><em>That Bring You Clients</em></h1>
+  <p class="hero-sub">We connect your positioning, pages, and ads into one system — built to attract the right clients and convert them consistently.</p>
+  <div class="hero-actions">
+    <a href="#cta" class="btn btn-teal btn-lg">Schedule a Discovery Call</a>
+    <a href="#phases" class="btn btn-outline btn-lg">See How It Works</a>
+  </div>
+  <div class="hero-proof">
+    <div class="proof-item"><div><div class="proof-num">30+</div><div>Years combined experience</div></div></div>
+    <div class="proof-divider"></div>
+    <div class="proof-item"><div><div class="proof-num">2</div><div>Continents. One team.</div></div></div>
+    <div class="proof-divider"></div>
+    <div class="proof-item"><div><div class="proof-num">1</div><div>Integrated system</div></div></div>
+  </div>
+</section>
+</div>
+
+<div class="pillars-strip">
+  <div class="pillars-inner">
+    <div class="strip-pillar sr">
+      <div class="sp-icon"><i class="ph-bold ph-cursor-click"></i></div>
+      <div><div class="sp-title">Conversion-Focused Pages</div><div class="sp-desc">Built to turn visitors into leads — not just traffic.</div></div>
+    </div>
+    <div class="strip-pillar sr d1">
+      <div class="sp-icon"><i class="ph-bold ph-crosshair-simple"></i></div>
+      <div><div class="sp-title">Aligned Messaging</div><div class="sp-desc">Strategy, copy, and positioning that speaks to buyers.</div></div>
+    </div>
+    <div class="strip-pillar sr d2">
+      <div class="sp-icon"><i class="ph-bold ph-chart-line-up"></i></div>
+      <div><div class="sp-title">Continuous Optimization</div><div class="sp-desc">Data-backed decisions. Systems that improve over time.</div></div>
+    </div>
+  </div>
+</div>
+
+<section class="sec sec-navy">
+  <div class="container">
+    <div class="sr">
+      <span class="sec-label">The Problem</span>
+      <h2>The Disconnect That's<br>Costing You Results</h2>
+      <p class="sec-desc">Most businesses hire different people for strategy, for building, and for managing campaigns. Nothing works together.</p>
+    </div>
+    <div class="problem-cols">
+      <div class="prob-col sr">
+        <div class="prob-col-title">❌ The Problem</div>
+        <div class="prob-row"><span class="prob-icon" style="color:rgba(255,100,100,.7)">✕</span><span>Your ads don't connect with your landing pages</span></div>
+        <div class="prob-row"><span class="prob-icon" style="color:rgba(255,100,100,.7)">✕</span><span>Your messaging isn't aligned across your funnels</span></div>
+        <div class="prob-row"><span class="prob-icon" style="color:rgba(255,100,100,.7)">✕</span><span>You can't tell what's actually working</span></div>
+        <div class="prob-row"><span class="prob-icon" style="color:rgba(255,100,100,.7)">✕</span><span>Results swing wildly month to month</span></div>
+      </div>
+      <div class="prob-col yes sr d2">
+        <div class="prob-col-title">✓ Our Approach</div>
+        <div class="prob-row"><span class="prob-icon" style="color:var(--teal)">✓</span><span>Campaigns designed with matching landing pages</span></div>
+        <div class="prob-row"><span class="prob-icon" style="color:var(--teal)">✓</span><span>Every page built for targeting and conversion</span></div>
+        <div class="prob-row"><span class="prob-icon" style="color:var(--teal)">✓</span><span>Clear reporting on the metrics that matter</span></div>
+        <div class="prob-row"><span class="prob-icon" style="color:var(--teal)">✓</span><span>Decisions based on real performance data</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="phases" class="sec sec-light">
+  <div class="container">
+    <div class="sr">
+      <span class="sec-label">How We Work</span>
+      <h2>Three Phases, <em>One Team</em></h2>
+      <p class="sec-desc">We handle strategy, building, and campaign management as one integrated system — so each component supports the next.</p>
+    </div>
+
+    <div class="phase">
+      <div class="phase-row">
+        <div class="sr">
+          <div class="phase-num">01</div>
+          <div class="phase-title">Strategy & Positioning</div>
+          <p class="phase-desc">We figure out exactly how to position you in the market and craft the message that will attract your ideal clients — before a single ad goes live.</p>
+          <ul class="phase-list">
+            <li><span class="li-check">✓</span>Competitive positioning</li>
+            <li><span class="li-check">✓</span>Target audience research</li>
+            <li><span class="li-check">✓</span>Messaging and value proposition</li>
+            <li><span class="li-check">✓</span>Offer structure and pricing review</li>
+          </ul>
+        </div>
+        <div class="phase-box sr d2" style="padding:0;">
+          <svg viewBox="0 0 380 278" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+
+  <!-- Premium quadrant highlight -->
+  <rect x="192" y="18" width="148" height="122" fill="rgba(14,207,176,0.05)"/>
+
+  <!-- Outer frame -->
+  <rect x="44" y="18" width="296" height="244" stroke="rgba(26,32,53,0.1)" stroke-width="1" fill="none"/>
+
+  <!-- Quadrant dividers -->
+  <line x1="192" y1="18" x2="192" y2="262" stroke="rgba(26,32,53,0.08)" stroke-width="1" stroke-dasharray="5 3"/>
+  <line x1="44" y1="140" x2="340" y2="140" stroke="rgba(26,32,53,0.08)" stroke-width="1" stroke-dasharray="5 3"/>
+
+  <!-- Axis arrows -->
+  <line x1="44" y1="262" x2="348" y2="262" stroke="rgba(26,32,53,0.18)" stroke-width="1"/>
+  <polygon points="346,259 352,262 346,265" fill="rgba(26,32,53,0.22)"/>
+  <line x1="44" y1="262" x2="44" y2="10" stroke="rgba(26,32,53,0.18)" stroke-width="1"/>
+  <polygon points="41,12 44,6 47,12" fill="rgba(26,32,53,0.22)"/>
+
+  <!-- Axis labels -->
+  <text x="196" y="276" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" font-weight="700" letter-spacing="0.13em" fill="rgba(26,32,53,0.28)">SPECIALISATION →</text>
+  <text x="20" y="140" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" font-weight="700" letter-spacing="0.11em" fill="rgba(26,32,53,0.28)" transform="rotate(-90,20,140)">VALUE DELIVERED →</text>
+
+  <!-- Quadrant labels (corner, very subtle) -->
+  <text x="118" y="32" text-anchor="middle" font-family="Inter,sans-serif" font-size="6.5" font-weight="700" letter-spacing="0.1em" fill="rgba(26,32,53,0.18)">GENERIC</text>
+  <text x="266" y="32" text-anchor="middle" font-family="Inter,sans-serif" font-size="6.5" font-weight="700" letter-spacing="0.1em" fill="rgba(14,207,176,0.5)">PREMIUM</text>
+  <text x="118" y="154" text-anchor="middle" font-family="Inter,sans-serif" font-size="6.5" font-weight="700" letter-spacing="0.1em" fill="rgba(26,32,53,0.18)">COMMODITY</text>
+  <text x="266" y="154" text-anchor="middle" font-family="Inter,sans-serif" font-size="6.5" font-weight="700" letter-spacing="0.1em" fill="rgba(26,32,53,0.18)">NICHE</text>
+
+  <!-- Competitor dots — scattered in lower/generic quadrants -->
+  <circle cx="88" cy="202" r="14" fill="white" stroke="rgba(26,32,53,0.08)" stroke-width="1.5"/>
+  <text x="88" y="206" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(26,32,53,0.28)" font-weight="700">A</text>
+
+  <circle cx="150" cy="74" r="11" fill="white" stroke="rgba(26,32,53,0.08)" stroke-width="1.5"/>
+  <text x="150" y="78" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(26,32,53,0.28)" font-weight="700">B</text>
+
+  <circle cx="78" cy="162" r="9" fill="white" stroke="rgba(26,32,53,0.08)" stroke-width="1.5"/>
+  <text x="78" y="166" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(26,32,53,0.28)" font-weight="700">C</text>
+
+  <circle cx="234" cy="214" r="11" fill="white" stroke="rgba(26,32,53,0.08)" stroke-width="1.5"/>
+  <text x="234" y="218" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(26,32,53,0.28)" font-weight="700">D</text>
+
+  <!-- YOU — top right premium quadrant, prominent -->
+  <circle cx="278" cy="72" r="34" fill="rgba(14,207,176,0.08)" stroke="rgba(14,207,176,0.18)" stroke-width="1.5"/>
+  <circle cx="278" cy="72" r="20" fill="rgba(14,207,176,0.18)" stroke="rgba(14,207,176,0.4)" stroke-width="1.5"/>
+  <circle cx="278" cy="72" r="9" fill="#0ecfb0"/>
+  <text x="278" y="75.5" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" font-weight="800" fill="white" letter-spacing="0.06em">YOU</text>
+
+</svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-row rev">
+        <div class="sr">
+          <div class="phase-num">02</div>
+          <div class="phase-title">Infrastructure Development</div>
+          <p class="phase-desc">We build your website, landing pages, funnels, and set up all the tech infrastructure you need — conversion-ready from day one.</p>
+          <ul class="phase-list">
+            <li><span class="li-check">✓</span>High-performance websites</li>
+            <li><span class="li-check">✓</span>Landing pages and sales funnels</li>
+            <li><span class="li-check">✓</span>Email automation and CRM setup</li>
+            <li><span class="li-check">✓</span>Tracking and analytics implementation</li>
+          </ul>
+        </div>
+        <div class="phase-box sr d2" style="padding:0;">
+          <svg viewBox="0 0 380 340" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;padding:28px 32px;box-sizing:border-box;">
+
+  <!-- ── ROW 1: Traffic sources ── -->
+  <rect x="0" y="0" width="148" height="52" rx="8" fill="rgba(26,32,53,0.04)" stroke="rgba(26,32,53,0.09)" stroke-width="1"/>
+  <text x="74" y="22" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" font-weight="800" fill="rgba(26,32,53,0.55)" letter-spacing="0.06em">META ADS</text>
+  <text x="74" y="38" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.28)">Paid Social</text>
+
+  <rect x="168" y="0" width="148" height="52" rx="8" fill="rgba(26,32,53,0.04)" stroke="rgba(26,32,53,0.09)" stroke-width="1"/>
+  <text x="242" y="22" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" font-weight="800" fill="rgba(26,32,53,0.55)" letter-spacing="0.06em">GOOGLE ADS</text>
+  <text x="242" y="38" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.28)">Paid Search</text>
+
+  <!-- Converging connector lines (no markers — hand-drawn chevron tips) -->
+  <!-- Left source down and right to center -->
+  <path d="M74,52 C74,72 158,72 158,92" stroke="rgba(26,32,53,0.13)" stroke-width="1" fill="none"/>
+  <!-- Right source down and left to center -->
+  <path d="M242,52 C242,72 158,72 158,92" stroke="rgba(26,32,53,0.13)" stroke-width="1" fill="none"/>
+  <!-- Hand-drawn chevron at top of website box -->
+  <path d="M154,89 L158,96 L162,89" stroke="rgba(26,32,53,0.22)" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- ── ROW 2: Website — teal conversion layer ── -->
+  <rect x="0" y="96" width="316" height="56" rx="8" fill="rgba(14,207,176,0.07)" stroke="rgba(14,207,176,0.3)" stroke-width="1.4"/>
+  <text x="158" y="119" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" font-weight="800" fill="#0ecfb0" letter-spacing="0.05em">WEBSITE + LANDING PAGES</text>
+  <text x="158" y="139" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(14,207,176,0.6)">Conversion Layer  ·  Lead Capture</text>
+
+  <!-- Vertical connector down -->
+  <line x1="158" y1="152" x2="158" y2="178" stroke="rgba(26,32,53,0.13)" stroke-width="1"/>
+  <path d="M154,175 L158,182 L162,175" stroke="rgba(26,32,53,0.22)" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- ── ROW 3: CRM ── -->
+  <rect x="68" y="182" width="180" height="52" rx="8" fill="rgba(26,32,53,0.04)" stroke="rgba(26,32,53,0.09)" stroke-width="1"/>
+  <text x="158" y="204" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" font-weight="800" fill="rgba(26,32,53,0.55)" letter-spacing="0.06em">CRM</text>
+  <text x="158" y="222" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.28)">Lead Management  ·  HubSpot</text>
+
+  <!-- Split connectors: left to email, right to analytics -->
+  <path d="M110,234 C110,248 60,252 60,264" stroke="rgba(26,32,53,0.13)" stroke-width="1" fill="none"/>
+  <path d="M206,234 C206,248 256,252 256,264" stroke="rgba(26,32,53,0.13)" stroke-width="1" fill="none"/>
+  <!-- Chevrons -->
+  <path d="M56,261 L60,268 L64,261" stroke="rgba(26,32,53,0.22)" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M252,261 L256,268 L260,261" stroke="rgba(26,32,53,0.22)" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- ── ROW 4: Email + Analytics ── -->
+  <rect x="0" y="268" width="134" height="52" rx="8" fill="rgba(26,32,53,0.04)" stroke="rgba(26,32,53,0.09)" stroke-width="1"/>
+  <text x="67" y="290" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="800" fill="rgba(26,32,53,0.5)" letter-spacing="0.05em">EMAIL AUTO</text>
+  <text x="67" y="308" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.28)">Nurture Sequences</text>
+
+  <rect x="182" y="268" width="134" height="52" rx="8" fill="rgba(26,32,53,0.04)" stroke="rgba(26,32,53,0.09)" stroke-width="1"/>
+  <text x="249" y="290" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="800" fill="rgba(26,32,53,0.5)" letter-spacing="0.05em">ANALYTICS</text>
+  <text x="249" y="308" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.28)">Data + Reports</text>
+
+</svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-row">
+        <div class="sr">
+          <div class="phase-num">03</div>
+          <div class="phase-title">Campaign Management & Optimization</div>
+          <p class="phase-desc">We manage your campaigns, track performance, and continuously optimize for better returns — so your spend keeps working harder.</p>
+          <ul class="phase-list">
+            <li><span class="li-check">✓</span>Paid channel execution (Meta & Google)</li>
+            <li><span class="li-check">✓</span>Performance analysis</li>
+            <li><span class="li-check">✓</span>Continuous testing</li>
+            <li><span class="li-check">✓</span>Monthly strategic reviews</li>
+          </ul>
+        </div>
+        <div class="phase-box sr d2" style="padding:0;">
+          <svg viewBox="0 0 380 260" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+  <defs>
+    <linearGradient id="perfGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0ecfb0" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0ecfb0" stop-opacity="0.01"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Gridlines -->
+  <line x1="56" y1="44" x2="352" y2="44" stroke="rgba(26,32,53,0.06)" stroke-width="1"/>
+  <line x1="56" y1="84" x2="352" y2="84" stroke="rgba(26,32,53,0.06)" stroke-width="1"/>
+  <line x1="56" y1="124" x2="352" y2="124" stroke="rgba(26,32,53,0.06)" stroke-width="1"/>
+  <line x1="56" y1="164" x2="352" y2="164" stroke="rgba(26,32,53,0.06)" stroke-width="1"/>
+  <line x1="56" y1="204" x2="352" y2="204" stroke="rgba(26,32,53,0.1)" stroke-width="1"/>
+
+  <!-- Area fill under line -->
+  <polygon points="76,182 126,168 176,144 226,112 276,80 326,50 326,204 76,204" fill="url(#perfGrad)"/>
+
+  <!-- Trend line -->
+  <polyline points="76,182 126,168 176,144 226,112 276,80 326,50" stroke="#0ecfb0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Data points -->
+  <circle cx="76" cy="182" r="4" fill="white" stroke="#0ecfb0" stroke-width="2"/>
+  <circle cx="126" cy="168" r="4" fill="white" stroke="#0ecfb0" stroke-width="2"/>
+  <circle cx="176" cy="144" r="4" fill="white" stroke="#0ecfb0" stroke-width="2"/>
+  <circle cx="226" cy="112" r="4" fill="white" stroke="#0ecfb0" stroke-width="2"/>
+  <circle cx="276" cy="80" r="4" fill="white" stroke="#0ecfb0" stroke-width="2"/>
+  <circle cx="326" cy="50" r="5" fill="#0ecfb0" stroke="white" stroke-width="2"/>
+
+  <!-- X-axis labels -->
+  <text x="76" y="220" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.28)" font-weight="600">M1</text>
+  <text x="126" y="220" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.28)" font-weight="600">M2</text>
+  <text x="176" y="220" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.28)" font-weight="600">M3</text>
+  <text x="226" y="220" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.28)" font-weight="600">M4</text>
+  <text x="276" y="220" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.28)" font-weight="600">M5</text>
+  <text x="326" y="220" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.28)" font-weight="600">M6</text>
+
+  <!-- Y-axis label -->
+  <text x="26" y="128" text-anchor="middle" font-family="Inter,sans-serif" font-size="6.5" font-weight="700" letter-spacing="0.1em" fill="rgba(26,32,53,0.22)" transform="rotate(-90,26,128)">PERFORMANCE</text>
+
+  <!-- Bottom caption -->
+  <text x="190" y="244" text-anchor="middle" font-family="Inter,sans-serif" font-size="6.5" font-weight="700" letter-spacing="0.12em" fill="rgba(26,32,53,0.2)">MANAGED AND OPTIMISED MONTHLY</text>
+
+</svg>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;padding:40px 0 8px;" class="sr">
+      <a href="#cta" class="btn btn-dark btn-lg">Schedule a Discovery Call</a>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="sec-portfolio">
+  <div class="container">
+    <div class="sr" style="margin-bottom:52px;">
+      <span class="sec-label" style="color:var(--teal);">Our Work</span>
+      <h2>Built to Convert,<br><em>Built to Impress</em></h2>
+      <p class="sec-desc">A selection of websites and landing pages we've designed and developed for clients across Brazil and South Africa.</p>
+    </div>
+  </div>
+  <div class="portfolio-track">
+
+    <div class="portfolio-card sr">
+      <a href="https://elow-estudio-design.vercel.app/" target="_blank" class="portfolio-link">
+        <div class="browser-chrome">
+          <div class="browser-bar">
+            <div class="browser-dots"><span></span><span></span><span></span></div>
+            <div class="browser-url">elow-estudio-design.vercel.app</div>
+          </div>
+          <div class="browser-screen">
+            <img src="https://vyager.com.br/wp-content/uploads/2026/02/screencapture-elow-estudio-design-vercel-app-2026-02-27-08_35_46-scaled.png" alt="Elow Estúdio Design"/>
+            <div class="portfolio-overlay"><span class="portfolio-view">View Live <i class="ph-bold ph-arrow-square-out"></i></span></div>
+          </div>
+        </div>
+        <div class="portfolio-meta">
+          <div class="portfolio-tag">Branding Studio</div>
+          <div class="portfolio-name">Elow Estúdio Design</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="portfolio-card sr d1">
+      <a href="https://gisele-azevedo-5-passos.vercel.app/" target="_blank" class="portfolio-link">
+        <div class="browser-chrome">
+          <div class="browser-bar">
+            <div class="browser-dots"><span></span><span></span><span></span></div>
+            <div class="browser-url">gisele-azevedo-5-passos.vercel.app</div>
+          </div>
+          <div class="browser-screen">
+            <img src="https://vyager.com.br/wp-content/uploads/2026/02/screencapture-gisele-azevedo-6-passos-vercel-app-2026-02-27-07_15_36-scaled.png" alt="Gisele Azevedo"/>
+            <div class="portfolio-overlay"><span class="portfolio-view">View Live <i class="ph-bold ph-arrow-square-out"></i></span></div>
+          </div>
+        </div>
+        <div class="portfolio-meta">
+          <div class="portfolio-tag">Health & Wellness</div>
+          <div class="portfolio-name">Gisele Azevedo</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="portfolio-card sr d2">
+      <a href="https://vitalista.vercel.app/" target="_blank" class="portfolio-link">
+        <div class="browser-chrome">
+          <div class="browser-bar">
+            <div class="browser-dots"><span></span><span></span><span></span></div>
+            <div class="browser-url">vitalista.vercel.app</div>
+          </div>
+          <div class="browser-screen">
+            <img src="https://vyager.com.br/wp-content/uploads/2026/02/screencapture-vitalista-vercel-app-2026-02-27-07_15_02-scaled.png" alt="Vitalista"/>
+            <div class="portfolio-overlay"><span class="portfolio-view">View Live <i class="ph-bold ph-arrow-square-out"></i></span></div>
+          </div>
+        </div>
+        <div class="portfolio-meta">
+          <div class="portfolio-tag">Renewable Energy</div>
+          <div class="portfolio-name">Vitalista</div>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section class="sec sec-nav2">
+  <div class="container">
+    <div class="sr" style="text-align:center;max-width:520px;margin:0 auto 0;">
+      <span class="sec-label">The Results</span>
+      <h2>What Changes When It's<br><em>Built as a System</em></h2>
+    </div>
+    <div class="outcomes-grid sr d1">
+      <div class="out-card"><i class="ph-bold ph-chart-bar out-icon"></i><div class="out-title">Clear Performance Signals</div><p class="out-desc">You see what's working, not just traffic numbers.</p></div>
+      <div class="out-card"><i class="ph-bold ph-coins out-icon"></i><div class="out-title">Smarter Budget Allocation</div><p class="out-desc">Money shifts toward what actually converts.</p></div>
+      <div class="out-card"><i class="ph-bold ph-arrows-clockwise out-icon"></i><div class="out-title">Faster Course Correction</div><p class="out-desc">Issues are identified early, not months later.</p></div>
+      <div class="out-card"><i class="ph-bold ph-funnel out-icon"></i><div class="out-title">Stronger Conversion Paths</div><p class="out-desc">Pages and campaigns reinforce each other.</p></div>
+      <div class="out-card"><i class="ph-bold ph-compass out-icon"></i><div class="out-title">Consistent Strategic Direction</div><p class="out-desc">Positioning and messaging aligned across every channel.</p></div>
+      <div class="out-card"><i class="ph-bold ph-wrench out-icon"></i><div class="out-title">Less Operational Friction</div><p class="out-desc">No vendor coordination. No disconnected execution.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-light">
+  <div class="container">
+    <div class="testi-wrap sr">
+      <img src="https://vyager.com.br/wp-content/uploads/2026/02/587017235_18540400366047899_4245751097537391145_n.jpg"
+           alt="Rodrigo Drew"
+           style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;flex-shrink:0;border:2px solid var(--teal-border);"/>
+      <div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-q">"You deliver work at the highest level. You master the technical side and have a deep understanding of copy, customer journey, and conversion. What impresses me most is your ability to turn ideas into funnels that work — fast — and that truly sell. You're well organised, highly competent, and clearly know exactly what you're doing. Working with you brings confidence and peace of mind."</p>
+        <div class="testi-name">Rodrigo Drew</div>
+        <div class="testi-role">Digital Entrepreneur</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-navy">
+  <div class="container">
+    <div class="sr">
+      <span class="sec-label">Who This Is For</span>
+      <h2>Who We Work With</h2>
+      <p class="sec-desc">We work best with expert-service businesses — consultants, medical professionals, advisors, and B2B providers who rely on credibility and trust to drive growth.</p>
+    </div>
+    <div class="ideal-cols">
+      <div class="ideal-col sr">
+        <span class="ideal-col-label">Not the right fit</span>
+        <div class="ideal-row"><div class="ideal-tag">Quick Fix Seekers</div><div class="ideal-desc">You expect instant results without room for testing, learning, or proper implementation.</div></div>
+        <div class="ideal-row"><div class="ideal-tag">Minimal Budget Holders</div><div class="ideal-desc">You aren't ready to invest in what it takes to scale properly and sustainably.</div></div>
+        <div class="ideal-row"><div class="ideal-tag">Misaligned Expectations</div><div class="ideal-desc">You want hands-free execution with no strategic input or collaboration.</div></div>
+      </div>
+      <div class="ideal-col fit sr d2">
+        <span class="ideal-col-label">Ideal partners</span>
+        <div class="ideal-row"><div class="ideal-tag">Data-Driven Thinkers</div><div class="ideal-desc">You track what matters — ROI, leads, conversions. You're not afraid of analytics.</div></div>
+        <div class="ideal-row"><div class="ideal-tag">Strategic Communicators</div><div class="ideal-desc">You're clear about goals and timelines, and genuinely open to collaboration.</div></div>
+        <div class="ideal-row"><div class="ideal-tag">Committed to Growth</div><div class="ideal-desc">You're serious about scaling, testing new strategies, and building systems that last.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="team" class="sec sec-light" style="padding:0;">
+  <div class="team-split">
+
+    <!-- LEFT: Text -->
+    <div class="team-split-text sr">
+      <span class="sec-label">Who We Are</span>
+      <h2 style="color:var(--dark-text);">Built by<br><em style="color:#059c85;">Operators</em></h2>
+
+      <div class="team-person">
+        <div class="team-person-header">
+          <div class="team-person-name">Fernanda Garcia</div>
+          <div class="team-person-role">Growth & Partnerships</div>
+        </div>
+        <p class="team-person-bio">Across IT, project management, compliance, and data strategy — ensuring every system we build is stable, measurable, and operationally sound.</p>
+      </div>
+
+      <div class="team-person">
+        <div class="team-person-header">
+          <div class="team-person-name">Sean Lurie</div>
+          <div class="team-person-role">Lead Digital Strategist</div>
+        </div>
+        <p class="team-person-bio">Sales, business development, and marketing — aligning positioning and performance with commercial objectives across every engagement.</p>
+      </div>
+
+      <p class="team-together">Together, strategy and structure are developed in parallel — no handoffs, no gaps.</p>
+    </div>
+
+    <!-- RIGHT: Photo -->
+    <div class="team-split-photo sr d2">
+      <img src="https://vyager.com.br/wp-content/uploads/2026/02/ChatGPT-Image-Feb-20-2026-09_57_51-PM.png"
+           alt="Sean and Fernanda — Vyager"
+           style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/>
+    </div>
+
+  </div>
+</section>
+
+<section id="cta" class="sec">
+  <div class="cta-inner">
+    <span class="sec-label sr" style="display:block;margin-bottom:12px;">How We Start</span>
+    <h2 class="sr">A Structured Evaluation<br>Before Any Commitment</h2>
+    <p class="sr">We begin with a free consultation on your current positioning, pages, and campaigns. You receive a clear breakdown of what's working, what isn't, and what needs to change.<br><br>If there's a fit, we build the system. If not, you leave with clarity at no cost.</p>
+    <a href="https://wa.me/?text=Hi%2C+I'd+like+to+book+a+discovery+call+with+Vyager" target="_blank" class="btn btn-teal btn-lg sr">Schedule a Discovery Call</a>
+    <div class="cta-box sr d2">
+      <span class="cta-box-label">You'll walk away with</span>
+      <div class="cta-item"><span class="ci-arrow">→</span><span>A strategic review of your current digital setup</span></div>
+      <div class="cta-item"><span class="ci-arrow">→</span><span>Key insights into what's holding back your growth</span></div>
+      <div class="cta-item"><span class="ci-arrow">→</span><span>Priority actions to unlock measurable traction</span></div>
+      <div class="cta-item"><span class="ci-arrow">→</span><span>Clarity on whether we're the right fit for your stage</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="#" class="foot-logo">VYA<span>GER</span></a>
+  <div class="foot-links">
+    <a href="https://www.facebook.com/vyagerdigitalbrasil" target="_blank" class="foot-link">Facebook</a>
+    <a href="https://www.instagram.com/vyagerdigitalbrasil" target="_blank" class="foot-link">Instagram</a>
+    <a href="https://www.vyager.co/eng" target="_blank" class="foot-link">Website</a>
+  </div>
+  <div class="foot-copy">© 2025 Vyager · SA & BR</div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('stuck', window.scrollY > 60));
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.sr').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
