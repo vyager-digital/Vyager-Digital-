@@ -166,11 +166,12 @@ h2 em { font-style: italic; color: var(--teal); font-weight: 700; }
 .phase-box { background: white; border: 1px solid rgba(0,0,0,.07); border-radius: 12px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,.06); }
 
 .outcomes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 56px; border: 1px solid var(--border); }
-.out-card { padding: 36px 32px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); transition: background .25s; }
+.out-card { padding: 44px 36px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); transition: background .25s; }
 .out-card:hover { background: rgba(255,255,255,.025); }
 .out-card:nth-child(3n) { border-right: none; }
 .out-card:nth-child(4), .out-card:nth-child(5), .out-card:nth-child(6) { border-bottom: none; }
-.out-icon { font-size: 1.3rem; margin-bottom: 16px; display: block; }
+.out-icon-wrap { width: 60px; height: 60px; border-radius: 14px; background: rgba(14,207,176,0.12); border: 1px solid rgba(14,207,176,0.25); display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+.out-icon { font-size: 1.6rem; color: var(--teal); }
 .out-title { font-size: .9rem; font-weight: 700; margin-bottom: 8px; color: var(--white); }
 .out-desc { font-size: .82rem; line-height: 1.6; color: var(--text-dim); }
 
@@ -219,12 +220,19 @@ h2 em { font-style: italic; color: var(--teal); font-weight: 700; }
 .cta-item:last-child { border: none; }
 .ci-arrow { color: var(--teal); flex-shrink: 0; font-weight: 700; font-size: .8rem; margin-top: 1px; }
 
-footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+footer { border-top: 1px solid var(--border); padding: 40px 40px 32px; display: flex; flex-direction: column; gap: 24px; }
+.foot-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
 .foot-logo { font-size: .95rem; font-weight: 800; color: var(--white); text-decoration: none; }
 .foot-logo span { color: var(--teal); }
 .foot-links { display: flex; gap: 24px; }
 .foot-link { font-size: .78rem; color: var(--text-dim); text-decoration: none; transition: color .2s; }
 .foot-link:hover { color: var(--white); }
+.foot-bottom { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; border-top: 1px solid var(--border); padding-top: 24px; }
+.foot-address { font-size: .72rem; color: rgba(255,255,255,.3); line-height: 1.8; }
+.foot-legal { display: flex; gap: 16px; align-items: center; }
+.foot-legal a { font-size: .72rem; color: rgba(255,255,255,.3); text-decoration: none; font-weight: 600; transition: color .2s; }
+.foot-legal a:hover { color: var(--white); }
+.foot-legal span { color: rgba(255,255,255,.15); }
 .foot-copy { font-size: .72rem; color: rgba(255,255,255,.2); }
 
 /* ─── PORTFOLIO ─── */
@@ -411,13 +419,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex;
     <a href="#cta" class="btn btn-teal btn-lg">Schedule a Discovery Call</a>
     <a href="#phases" class="btn btn-outline btn-lg">See How It Works</a>
   </div>
-  <div class="hero-proof">
-    <div class="proof-item"><div><div class="proof-num">30+</div><div>Years combined experience</div></div></div>
-    <div class="proof-divider"></div>
-    <div class="proof-item"><div><div class="proof-num">2</div><div>Continents. One team.</div></div></div>
-    <div class="proof-divider"></div>
-    <div class="proof-item"><div><div class="proof-num">1</div><div>Integrated system</div></div></div>
-  </div>
+
 </section>
 </div>
 
@@ -563,49 +565,49 @@ footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex;
           <svg viewBox="0 0 380 278" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
 
   <!-- Premium quadrant highlight -->
-  <rect x="192" y="18" width="148" height="122" fill="rgba(14,207,176,0.05)"/>
+  <rect x="192" y="18" width="148" height="122" fill="rgba(14,207,176,0.09)"/>
 
   <!-- Outer frame -->
-  <rect x="44" y="18" width="296" height="244" stroke="rgba(26,32,53,0.1)" stroke-width="1" fill="none"/>
+  <rect x="44" y="18" width="296" height="244" stroke="rgba(26,32,53,0.18)" stroke-width="1.2" fill="none"/>
 
   <!-- Quadrant dividers -->
-  <line x1="192" y1="18" x2="192" y2="262" stroke="rgba(26,32,53,0.08)" stroke-width="1" stroke-dasharray="5 3"/>
-  <line x1="44" y1="140" x2="340" y2="140" stroke="rgba(26,32,53,0.08)" stroke-width="1" stroke-dasharray="5 3"/>
+  <line x1="192" y1="18" x2="192" y2="262" stroke="rgba(26,32,53,0.15)" stroke-width="1" stroke-dasharray="5 3"/>
+  <line x1="44" y1="140" x2="340" y2="140" stroke="rgba(26,32,53,0.15)" stroke-width="1" stroke-dasharray="5 3"/>
 
   <!-- Axis arrows -->
-  <line x1="44" y1="262" x2="348" y2="262" stroke="rgba(26,32,53,0.18)" stroke-width="1"/>
-  <polygon points="346,259 352,262 346,265" fill="rgba(26,32,53,0.22)"/>
-  <line x1="44" y1="262" x2="44" y2="10" stroke="rgba(26,32,53,0.18)" stroke-width="1"/>
-  <polygon points="41,12 44,6 47,12" fill="rgba(26,32,53,0.22)"/>
+  <line x1="44" y1="262" x2="348" y2="262" stroke="rgba(26,32,53,0.35)" stroke-width="1.2"/>
+  <polygon points="346,259 352,262 346,265" fill="rgba(26,32,53,0.45)"/>
+  <line x1="44" y1="262" x2="44" y2="10" stroke="rgba(26,32,53,0.35)" stroke-width="1.2"/>
+  <polygon points="41,12 44,6 47,12" fill="rgba(26,32,53,0.45)"/>
 
   <!-- Axis labels -->
-  <text x="196" y="276" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" font-weight="700" letter-spacing="0.13em" fill="rgba(26,32,53,0.28)">SPECIALISATION →</text>
-  <text x="20" y="140" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" font-weight="700" letter-spacing="0.11em" fill="rgba(26,32,53,0.28)" transform="rotate(-90,20,140)">VALUE DELIVERED →</text>
+  <text x="196" y="276" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" font-weight="700" letter-spacing="0.13em" fill="rgba(26,32,53,0.5)">SPECIALISATION →</text>
+  <text x="20" y="140" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" font-weight="700" letter-spacing="0.11em" fill="rgba(26,32,53,0.5)" transform="rotate(-90,20,140)">VALUE DELIVERED →</text>
 
-  <!-- Quadrant labels (corner, very subtle) -->
-  <text x="118" y="32" text-anchor="middle" font-family="Inter,sans-serif" font-size="6.5" font-weight="700" letter-spacing="0.1em" fill="rgba(26,32,53,0.18)">GENERIC</text>
-  <text x="266" y="32" text-anchor="middle" font-family="Inter,sans-serif" font-size="6.5" font-weight="700" letter-spacing="0.1em" fill="rgba(14,207,176,0.5)">PREMIUM</text>
-  <text x="118" y="154" text-anchor="middle" font-family="Inter,sans-serif" font-size="6.5" font-weight="700" letter-spacing="0.1em" fill="rgba(26,32,53,0.18)">COMMODITY</text>
-  <text x="266" y="154" text-anchor="middle" font-family="Inter,sans-serif" font-size="6.5" font-weight="700" letter-spacing="0.1em" fill="rgba(26,32,53,0.18)">NICHE</text>
+  <!-- Quadrant labels -->
+  <text x="118" y="34" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" font-weight="700" letter-spacing="0.1em" fill="rgba(26,32,53,0.35)">GENERIC</text>
+  <text x="266" y="34" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" font-weight="700" letter-spacing="0.1em" fill="rgba(14,207,176,0.8)">PREMIUM</text>
+  <text x="118" y="156" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" font-weight="700" letter-spacing="0.1em" fill="rgba(26,32,53,0.35)">COMMODITY</text>
+  <text x="266" y="156" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" font-weight="700" letter-spacing="0.1em" fill="rgba(26,32,53,0.35)">NICHE</text>
 
-  <!-- Competitor dots — scattered in lower/generic quadrants -->
-  <circle cx="88" cy="202" r="14" fill="white" stroke="rgba(26,32,53,0.08)" stroke-width="1.5"/>
-  <text x="88" y="206" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(26,32,53,0.28)" font-weight="700">A</text>
+  <!-- Competitor dots -->
+  <circle cx="88" cy="202" r="16" fill="rgba(26,32,53,0.06)" stroke="rgba(26,32,53,0.22)" stroke-width="1.5"/>
+  <text x="88" y="207" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="rgba(26,32,53,0.45)" font-weight="700">A</text>
 
-  <circle cx="150" cy="74" r="11" fill="white" stroke="rgba(26,32,53,0.08)" stroke-width="1.5"/>
-  <text x="150" y="78" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(26,32,53,0.28)" font-weight="700">B</text>
+  <circle cx="150" cy="74" r="13" fill="rgba(26,32,53,0.06)" stroke="rgba(26,32,53,0.22)" stroke-width="1.5"/>
+  <text x="150" y="79" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="rgba(26,32,53,0.45)" font-weight="700">B</text>
 
-  <circle cx="78" cy="162" r="9" fill="white" stroke="rgba(26,32,53,0.08)" stroke-width="1.5"/>
-  <text x="78" y="166" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(26,32,53,0.28)" font-weight="700">C</text>
+  <circle cx="78" cy="162" r="11" fill="rgba(26,32,53,0.06)" stroke="rgba(26,32,53,0.22)" stroke-width="1.5"/>
+  <text x="78" y="166" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="rgba(26,32,53,0.45)" font-weight="700">C</text>
 
-  <circle cx="234" cy="214" r="11" fill="white" stroke="rgba(26,32,53,0.08)" stroke-width="1.5"/>
-  <text x="234" y="218" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(26,32,53,0.28)" font-weight="700">D</text>
+  <circle cx="234" cy="214" r="13" fill="rgba(26,32,53,0.06)" stroke="rgba(26,32,53,0.22)" stroke-width="1.5"/>
+  <text x="234" y="219" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="rgba(26,32,53,0.45)" font-weight="700">D</text>
 
-  <!-- YOU — top right premium quadrant, prominent -->
-  <circle cx="278" cy="72" r="34" fill="rgba(14,207,176,0.08)" stroke="rgba(14,207,176,0.18)" stroke-width="1.5"/>
-  <circle cx="278" cy="72" r="20" fill="rgba(14,207,176,0.18)" stroke="rgba(14,207,176,0.4)" stroke-width="1.5"/>
-  <circle cx="278" cy="72" r="9" fill="#0ecfb0"/>
-  <text x="278" y="75.5" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" font-weight="800" fill="white" letter-spacing="0.06em">YOU</text>
+  <!-- YOU -->
+  <circle cx="278" cy="72" r="36" fill="rgba(14,207,176,0.12)" stroke="rgba(14,207,176,0.25)" stroke-width="1.5"/>
+  <circle cx="278" cy="72" r="22" fill="rgba(14,207,176,0.25)" stroke="rgba(14,207,176,0.6)" stroke-width="2"/>
+  <circle cx="278" cy="72" r="10" fill="#0ecfb0"/>
+  <text x="278" y="76" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" font-weight="800" fill="white" letter-spacing="0.06em">YOU</text>
 
 </svg>
         </div>
@@ -628,52 +630,48 @@ footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex;
         <div class="phase-box sr d2" style="padding:0;">
           <svg viewBox="0 0 380 340" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;padding:28px 32px;box-sizing:border-box;">
 
-  <!-- ── ROW 1: Traffic sources ── -->
-  <rect x="0" y="0" width="148" height="52" rx="8" fill="rgba(26,32,53,0.04)" stroke="rgba(26,32,53,0.09)" stroke-width="1"/>
-  <text x="74" y="22" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" font-weight="800" fill="rgba(26,32,53,0.55)" letter-spacing="0.06em">META ADS</text>
-  <text x="74" y="38" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.28)">Paid Social</text>
+  <!-- ROW 1: Traffic sources -->
+  <rect x="0" y="0" width="148" height="52" rx="8" fill="rgba(26,32,53,0.07)" stroke="rgba(26,32,53,0.22)" stroke-width="1.2"/>
+  <text x="74" y="22" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="800" fill="rgba(26,32,53,0.7)" letter-spacing="0.05em">META ADS</text>
+  <text x="74" y="39" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.45)">Paid Social</text>
 
-  <rect x="168" y="0" width="148" height="52" rx="8" fill="rgba(26,32,53,0.04)" stroke="rgba(26,32,53,0.09)" stroke-width="1"/>
-  <text x="242" y="22" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" font-weight="800" fill="rgba(26,32,53,0.55)" letter-spacing="0.06em">GOOGLE ADS</text>
-  <text x="242" y="38" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.28)">Paid Search</text>
+  <rect x="168" y="0" width="148" height="52" rx="8" fill="rgba(26,32,53,0.07)" stroke="rgba(26,32,53,0.22)" stroke-width="1.2"/>
+  <text x="242" y="22" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="800" fill="rgba(26,32,53,0.7)" letter-spacing="0.05em">GOOGLE ADS</text>
+  <text x="242" y="39" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.45)">Paid Search</text>
 
-  <!-- Converging connector lines (no markers — hand-drawn chevron tips) -->
-  <!-- Left source down and right to center -->
-  <path d="M74,52 C74,72 158,72 158,92" stroke="rgba(26,32,53,0.13)" stroke-width="1" fill="none"/>
-  <!-- Right source down and left to center -->
-  <path d="M242,52 C242,72 158,72 158,92" stroke="rgba(26,32,53,0.13)" stroke-width="1" fill="none"/>
-  <!-- Hand-drawn chevron at top of website box -->
-  <path d="M154,89 L158,96 L162,89" stroke="rgba(26,32,53,0.22)" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Connectors to website -->
+  <path d="M74,52 C74,72 158,72 158,92" stroke="rgba(26,32,53,0.25)" stroke-width="1.5" fill="none"/>
+  <path d="M242,52 C242,72 158,72 158,92" stroke="rgba(26,32,53,0.25)" stroke-width="1.5" fill="none"/>
+  <path d="M154,89 L158,96 L162,89" stroke="rgba(26,32,53,0.4)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <!-- ── ROW 2: Website — teal conversion layer ── -->
-  <rect x="0" y="96" width="316" height="56" rx="8" fill="rgba(14,207,176,0.07)" stroke="rgba(14,207,176,0.3)" stroke-width="1.4"/>
-  <text x="158" y="119" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" font-weight="800" fill="#0ecfb0" letter-spacing="0.05em">WEBSITE + LANDING PAGES</text>
-  <text x="158" y="139" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(14,207,176,0.6)">Conversion Layer  ·  Lead Capture</text>
+  <!-- ROW 2: Website -->
+  <rect x="0" y="96" width="316" height="56" rx="8" fill="rgba(14,207,176,0.1)" stroke="rgba(14,207,176,0.55)" stroke-width="1.8"/>
+  <text x="158" y="120" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="800" fill="#0ecfb0" letter-spacing="0.05em">WEBSITE + LANDING PAGES</text>
+  <text x="158" y="140" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(14,207,176,0.75)">Conversion Layer  ·  Lead Capture</text>
 
-  <!-- Vertical connector down -->
-  <line x1="158" y1="152" x2="158" y2="178" stroke="rgba(26,32,53,0.13)" stroke-width="1"/>
-  <path d="M154,175 L158,182 L162,175" stroke="rgba(26,32,53,0.22)" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Connector to CRM -->
+  <line x1="158" y1="152" x2="158" y2="178" stroke="rgba(26,32,53,0.25)" stroke-width="1.5"/>
+  <path d="M154,175 L158,182 L162,175" stroke="rgba(26,32,53,0.4)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <!-- ── ROW 3: CRM ── -->
-  <rect x="68" y="182" width="180" height="52" rx="8" fill="rgba(26,32,53,0.04)" stroke="rgba(26,32,53,0.09)" stroke-width="1"/>
-  <text x="158" y="204" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" font-weight="800" fill="rgba(26,32,53,0.55)" letter-spacing="0.06em">CRM</text>
-  <text x="158" y="222" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.28)">Lead Management  ·  HubSpot</text>
+  <!-- ROW 3: CRM -->
+  <rect x="68" y="182" width="180" height="52" rx="8" fill="rgba(26,32,53,0.07)" stroke="rgba(26,32,53,0.22)" stroke-width="1.2"/>
+  <text x="158" y="204" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="800" fill="rgba(26,32,53,0.7)" letter-spacing="0.05em">CRM</text>
+  <text x="158" y="222" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.45)">Lead Management  ·  HubSpot</text>
 
-  <!-- Split connectors: left to email, right to analytics -->
-  <path d="M110,234 C110,248 60,252 60,264" stroke="rgba(26,32,53,0.13)" stroke-width="1" fill="none"/>
-  <path d="M206,234 C206,248 256,252 256,264" stroke="rgba(26,32,53,0.13)" stroke-width="1" fill="none"/>
-  <!-- Chevrons -->
-  <path d="M56,261 L60,268 L64,261" stroke="rgba(26,32,53,0.22)" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M252,261 L256,268 L260,261" stroke="rgba(26,32,53,0.22)" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Split connectors -->
+  <path d="M110,234 C110,248 60,252 60,264" stroke="rgba(26,32,53,0.25)" stroke-width="1.5" fill="none"/>
+  <path d="M206,234 C206,248 256,252 256,264" stroke="rgba(26,32,53,0.25)" stroke-width="1.5" fill="none"/>
+  <path d="M56,261 L60,268 L64,261" stroke="rgba(26,32,53,0.4)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M252,261 L256,268 L260,261" stroke="rgba(26,32,53,0.4)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <!-- ── ROW 4: Email + Analytics ── -->
-  <rect x="0" y="268" width="134" height="52" rx="8" fill="rgba(26,32,53,0.04)" stroke="rgba(26,32,53,0.09)" stroke-width="1"/>
-  <text x="67" y="290" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="800" fill="rgba(26,32,53,0.5)" letter-spacing="0.05em">EMAIL AUTO</text>
-  <text x="67" y="308" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.28)">Nurture Sequences</text>
+  <!-- ROW 4: Email + Analytics -->
+  <rect x="0" y="268" width="134" height="52" rx="8" fill="rgba(26,32,53,0.07)" stroke="rgba(26,32,53,0.22)" stroke-width="1.2"/>
+  <text x="67" y="291" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" font-weight="800" fill="rgba(26,32,53,0.65)" letter-spacing="0.04em">EMAIL AUTO</text>
+  <text x="67" y="308" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.45)">Nurture Sequences</text>
 
-  <rect x="182" y="268" width="134" height="52" rx="8" fill="rgba(26,32,53,0.04)" stroke="rgba(26,32,53,0.09)" stroke-width="1"/>
-  <text x="249" y="290" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="800" fill="rgba(26,32,53,0.5)" letter-spacing="0.05em">ANALYTICS</text>
-  <text x="249" y="308" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.28)">Data + Reports</text>
+  <rect x="182" y="268" width="134" height="52" rx="8" fill="rgba(26,32,53,0.07)" stroke="rgba(26,32,53,0.22)" stroke-width="1.2"/>
+  <text x="249" y="291" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" font-weight="800" fill="rgba(26,32,53,0.65)" letter-spacing="0.04em">ANALYTICS</text>
+  <text x="249" y="308" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.45)">Data + Reports</text>
 
 </svg>
         </div>
@@ -697,45 +695,47 @@ footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex;
           <svg viewBox="0 0 380 260" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
   <defs>
     <linearGradient id="perfGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#0ecfb0" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#0ecfb0" stop-opacity="0.01"/>
+      <stop offset="0%" stop-color="#0ecfb0" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#0ecfb0" stop-opacity="0.02"/>
     </linearGradient>
   </defs>
 
   <!-- Gridlines -->
-  <line x1="56" y1="44" x2="352" y2="44" stroke="rgba(26,32,53,0.06)" stroke-width="1"/>
-  <line x1="56" y1="84" x2="352" y2="84" stroke="rgba(26,32,53,0.06)" stroke-width="1"/>
-  <line x1="56" y1="124" x2="352" y2="124" stroke="rgba(26,32,53,0.06)" stroke-width="1"/>
-  <line x1="56" y1="164" x2="352" y2="164" stroke="rgba(26,32,53,0.06)" stroke-width="1"/>
-  <line x1="56" y1="204" x2="352" y2="204" stroke="rgba(26,32,53,0.1)" stroke-width="1"/>
+  <line x1="56" y1="44" x2="352" y2="44" stroke="rgba(26,32,53,0.1)" stroke-width="1"/>
+  <line x1="56" y1="84" x2="352" y2="84" stroke="rgba(26,32,53,0.1)" stroke-width="1"/>
+  <line x1="56" y1="124" x2="352" y2="124" stroke="rgba(26,32,53,0.1)" stroke-width="1"/>
+  <line x1="56" y1="164" x2="352" y2="164" stroke="rgba(26,32,53,0.1)" stroke-width="1"/>
+  <line x1="56" y1="204" x2="352" y2="204" stroke="rgba(26,32,53,0.18)" stroke-width="1"/>
+  <!-- Y axis -->
+  <line x1="56" y1="44" x2="56" y2="204" stroke="rgba(26,32,53,0.18)" stroke-width="1"/>
 
-  <!-- Area fill under line -->
+  <!-- Area fill -->
   <polygon points="76,182 126,168 176,144 226,112 276,80 326,50 326,204 76,204" fill="url(#perfGrad)"/>
 
   <!-- Trend line -->
-  <polyline points="76,182 126,168 176,144 226,112 276,80 326,50" stroke="#0ecfb0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <polyline points="76,182 126,168 176,144 226,112 276,80 326,50" stroke="#0ecfb0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 
   <!-- Data points -->
-  <circle cx="76" cy="182" r="4" fill="white" stroke="#0ecfb0" stroke-width="2"/>
-  <circle cx="126" cy="168" r="4" fill="white" stroke="#0ecfb0" stroke-width="2"/>
-  <circle cx="176" cy="144" r="4" fill="white" stroke="#0ecfb0" stroke-width="2"/>
-  <circle cx="226" cy="112" r="4" fill="white" stroke="#0ecfb0" stroke-width="2"/>
-  <circle cx="276" cy="80" r="4" fill="white" stroke="#0ecfb0" stroke-width="2"/>
-  <circle cx="326" cy="50" r="5" fill="#0ecfb0" stroke="white" stroke-width="2"/>
+  <circle cx="76" cy="182" r="4.5" fill="white" stroke="#0ecfb0" stroke-width="2.5"/>
+  <circle cx="126" cy="168" r="4.5" fill="white" stroke="#0ecfb0" stroke-width="2.5"/>
+  <circle cx="176" cy="144" r="4.5" fill="white" stroke="#0ecfb0" stroke-width="2.5"/>
+  <circle cx="226" cy="112" r="4.5" fill="white" stroke="#0ecfb0" stroke-width="2.5"/>
+  <circle cx="276" cy="80" r="4.5" fill="white" stroke="#0ecfb0" stroke-width="2.5"/>
+  <circle cx="326" cy="50" r="6" fill="#0ecfb0" stroke="white" stroke-width="2.5"/>
 
   <!-- X-axis labels -->
-  <text x="76" y="220" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.28)" font-weight="600">M1</text>
-  <text x="126" y="220" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.28)" font-weight="600">M2</text>
-  <text x="176" y="220" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.28)" font-weight="600">M3</text>
-  <text x="226" y="220" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.28)" font-weight="600">M4</text>
-  <text x="276" y="220" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.28)" font-weight="600">M5</text>
-  <text x="326" y="220" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(26,32,53,0.28)" font-weight="600">M6</text>
+  <text x="76" y="222" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="rgba(26,32,53,0.45)" font-weight="600">M1</text>
+  <text x="126" y="222" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="rgba(26,32,53,0.45)" font-weight="600">M2</text>
+  <text x="176" y="222" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="rgba(26,32,53,0.45)" font-weight="600">M3</text>
+  <text x="226" y="222" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="rgba(26,32,53,0.45)" font-weight="600">M4</text>
+  <text x="276" y="222" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="rgba(26,32,53,0.45)" font-weight="600">M5</text>
+  <text x="326" y="222" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="rgba(26,32,53,0.45)" font-weight="600">M6</text>
 
-  <!-- Y-axis label -->
-  <text x="26" y="128" text-anchor="middle" font-family="Inter,sans-serif" font-size="6.5" font-weight="700" letter-spacing="0.1em" fill="rgba(26,32,53,0.22)" transform="rotate(-90,26,128)">PERFORMANCE</text>
+  <!-- Y axis label -->
+  <text x="26" y="128" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" font-weight="700" letter-spacing="0.1em" fill="rgba(26,32,53,0.35)" transform="rotate(-90,26,128)">PERFORMANCE</text>
 
   <!-- Bottom caption -->
-  <text x="190" y="244" text-anchor="middle" font-family="Inter,sans-serif" font-size="6.5" font-weight="700" letter-spacing="0.12em" fill="rgba(26,32,53,0.2)">MANAGED AND OPTIMISED MONTHLY</text>
+  <text x="190" y="244" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" font-weight="700" letter-spacing="0.12em" fill="rgba(26,32,53,0.3)">MANAGED AND OPTIMISED MONTHLY</text>
 
 </svg>
         </div>
@@ -756,12 +756,12 @@ footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex;
       <h2>What Changes When It's<br><em>Built as a System</em></h2>
     </div>
     <div class="outcomes-grid sr d1">
-      <div class="out-card"><i class="ph-bold ph-chart-bar out-icon"></i><div class="out-title">Clear Performance Signals</div><p class="out-desc">You see what's working, not just traffic numbers.</p></div>
-      <div class="out-card"><i class="ph-bold ph-coins out-icon"></i><div class="out-title">Smarter Budget Allocation</div><p class="out-desc">Money shifts toward what actually converts.</p></div>
-      <div class="out-card"><i class="ph-bold ph-arrows-clockwise out-icon"></i><div class="out-title">Faster Course Correction</div><p class="out-desc">Issues are identified early, not months later.</p></div>
-      <div class="out-card"><i class="ph-bold ph-funnel out-icon"></i><div class="out-title">Stronger Conversion Paths</div><p class="out-desc">Pages and campaigns reinforce each other.</p></div>
-      <div class="out-card"><i class="ph-bold ph-compass out-icon"></i><div class="out-title">Consistent Strategic Direction</div><p class="out-desc">Positioning and messaging aligned across every channel.</p></div>
-      <div class="out-card"><i class="ph-bold ph-wrench out-icon"></i><div class="out-title">Less Operational Friction</div><p class="out-desc">No vendor coordination. No disconnected execution.</p></div>
+      <div class="out-card"><div class="out-icon-wrap"><i class="ph-bold ph-chart-bar out-icon"></i></div><div class="out-title">Clear Performance Signals</div><p class="out-desc">You see what's working, not just traffic numbers.</p></div>
+      <div class="out-card"><div class="out-icon-wrap"><i class="ph-bold ph-coins out-icon"></i></div><div class="out-title">Smarter Budget Allocation</div><p class="out-desc">Money shifts toward what actually converts.</p></div>
+      <div class="out-card"><div class="out-icon-wrap"><i class="ph-bold ph-arrows-clockwise out-icon"></i></div><div class="out-title">Faster Course Correction</div><p class="out-desc">Issues are identified early, not months later.</p></div>
+      <div class="out-card"><div class="out-icon-wrap"><i class="ph-bold ph-funnel out-icon"></i></div><div class="out-title">Stronger Conversion Paths</div><p class="out-desc">Pages and campaigns reinforce each other.</p></div>
+      <div class="out-card"><div class="out-icon-wrap"><i class="ph-bold ph-compass out-icon"></i></div><div class="out-title">Consistent Strategic Direction</div><p class="out-desc">Positioning and messaging aligned across every channel.</p></div>
+      <div class="out-card"><div class="out-icon-wrap"><i class="ph-bold ph-wrench out-icon"></i></div><div class="out-title">Less Operational Friction</div><p class="out-desc">No vendor coordination. No disconnected execution.</p></div>
     </div>
   </div>
 </section>
@@ -860,13 +860,27 @@ footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex;
 </section>
 
 <footer>
-  <a href="#" class="foot-logo"><img src="https://vyager.com.br/wp-content/uploads/2025/12/Vyager-Logo-New-2-1.png" alt="Vyager" style="height:36px;width:auto;display:block;"/></a>
-  <div class="foot-links">
-    <a href="https://www.facebook.com/vyagerdigitalbrasil" target="_blank" class="foot-link">Facebook</a>
-    <a href="https://www.instagram.com/vyagerdigitalbrasil" target="_blank" class="foot-link">Instagram</a>
-    <a href="https://www.vyager.co/eng" target="_blank" class="foot-link">Website</a>
+  <div class="foot-top">
+    <a href="#" class="foot-logo"><img src="https://vyager.com.br/wp-content/uploads/2025/12/Vyager-Logo-New-2-1.png" alt="Vyager" style="height:36px;width:auto;display:block;"/></a>
+    <div class="foot-links">
+      <a href="https://www.facebook.com/vyagerdigitalbrasil" target="_blank" class="foot-link">Facebook</a>
+      <a href="https://www.instagram.com/vyagerdigitalbrasil" target="_blank" class="foot-link">Instagram</a>
+      <a href="https://www.vyager.co/eng" target="_blank" class="foot-link">Website</a>
+    </div>
   </div>
-  <div class="foot-copy">© 2025 Vyager · SA & BR</div>
+  <div class="foot-bottom">
+    <div class="foot-address">
+      Leonardo da Vinci, 2566 – Vila Guarani – São Paulo, SP, Brazil – CEP: 04313-002<br>
+      Somerset Place, Heritage Park, Somerset West, Cape Town, South Africa<br>
+      +55 11 99205-7443
+    </div>
+    <div class="foot-legal">
+      <a href="#">Privacy Policy</a>
+      <span>|</span>
+      <a href="#">Terms of Use</a>
+    </div>
+  </div>
+</footer>
 </footer>
 
 <script>
