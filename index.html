@@ -400,6 +400,34 @@ footer { border-top: 1px solid var(--border); padding: 40px 40px 32px; display: 
   /* Team */
   .team-split-text { padding: 40px 20px; }
 }
+
+/* Custom cursor — mouse only */
+@media (pointer: fine) {
+  * { cursor: none !important; }
+  #cursor-dot {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: var(--teal);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    top: 0; left: 0;
+    transform: translate(-50%, -50%);
+  }
+  #cursor-glow {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    top: 0; left: 0;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(14,207,176,0.18) 0%, transparent 70%);
+    filter: blur(6px);
+  }
+}
 </style>
 </head>
 <body>
@@ -891,6 +919,27 @@ const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.sr').forEach(el => obs.observe(el));
+
+if (window.matchMedia('(pointer: fine)').matches) {
+  const dot = document.createElement('div');
+  dot.id = 'cursor-dot';
+  const glow = document.createElement('div');
+  glow.id = 'cursor-glow';
+  document.body.append(dot, glow);
+
+  let mx = 0, my = 0, gx = 0, gy = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+
+  (function animate() {
+    dot.style.left = mx + 'px';
+    dot.style.top  = my + 'px';
+    gx += (mx - gx) * 0.1;
+    gy += (my - gy) * 0.1;
+    glow.style.left = gx + 'px';
+    glow.style.top  = gy + 'px';
+    requestAnimationFrame(animate);
+  })();
+}
 </script>
 </body>
 </html>
