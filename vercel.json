@@ -1,18 +1,1 @@
-{
-  "rewrites": [
-    {
-      "source": "/",
-      "has": [{ "type": "host", "value": "www.vyager.com.br" }],
-      "destination": "/pt"
-    },
-    {
-      "source": "/",
-      "has": [{ "type": "host", "value": "vyager.com.br" }],
-      "destination": "/pt"
-    },
-    {
-      "source": "/",
-      "destination": "/en"
-    }
-  ]
-}
+{}

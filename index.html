@@ -373,15 +373,14 @@ footer { border-top: 1px solid var(--border); padding: 40px 40px 32px; display: 
   /* Portfolio */
   .sec-portfolio { padding: 64px 0 48px; }
   .portfolio-track {
-    grid-template-columns: repeat(3, 80vw);
-    max-width: none;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    overflow-x: visible;
+    scroll-snap-type: none;
     padding: 0 24px 16px;
-    gap: 16px;
+    gap: 32px;
   }
-  .portfolio-card { scroll-snap-align: start; }
+  .portfolio-card { scroll-snap-align: none; }
   /* Proof strip */
   .proof-strip { flex-wrap: wrap; gap: 16px; }
   .proof-divider { display: none; }
@@ -395,7 +394,7 @@ footer { border-top: 1px solid var(--border); padding: 40px 40px 32px; display: 
   .outcomes-grid { grid-template-columns: 1fr; }
   .out-card { border-right: none; }
   /* Portfolio */
-  .portfolio-track { grid-template-columns: repeat(3, 88vw); gap: 12px; }
+  .portfolio-track { grid-template-columns: 1fr; gap: 28px; padding: 0 20px 16px; }
   /* Footer */
   .foot-links { display: none; }
   /* Phases */
