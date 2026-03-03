@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/pt",
+      "destination": "https://www.vyager.com.br",
+      "permanent": true
+    },
+    {
+      "source": "/pt/",
+      "destination": "https://www.vyager.com.br",
+      "permanent": true
+    }
+  ]
+}
